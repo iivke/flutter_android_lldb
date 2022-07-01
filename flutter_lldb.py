@@ -78,6 +78,11 @@ def _get_android_lldb_server(args):
 
 LLDB_SERVER_DEVICE_TMP_PATH = '/data/local/tmp/lldb-server'
 
+def _config_vscode_launch_json(args, config_json):
+    engine_dir = args.local_engine_src_path
+    f = open(engine_dir + "/.vscode/launch.json", 'w')
+    f.write(config_json)
+    f.close()
 
 def main():
     parser = argparse.ArgumentParser(description='lldb debugger tool')
@@ -173,6 +178,8 @@ def run(args):
     print("Visual Studio Code launch configuration.")
     print("This configuration perform like `wait for debuggable process`.")
     print("Copy it to .vscode/launch.json if you have not load libflutter.so into memory:\n%s" % vscode_config)
+
+    _config_vscode_launch_json(args, vscode_config)
 
     # subprocess.check_call([adb_path, 'push', lldb_server_local_path, LLDB_SERVER_DEVICE_TMP_PATH], shell=True)
     FNULL = open(os.devnull, 'w')
