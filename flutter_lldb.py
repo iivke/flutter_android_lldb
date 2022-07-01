@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # coding=utf-8
-# Copyright 2019 区长. All rights reserved.
 
 import argparse
 import os
@@ -65,16 +64,7 @@ def _get_adb_path(args):
 
 
 def _get_android_lldb_server(args):
-    """get the lldb-server path."""
-    # lldb_server_root = os.path.join(_get_android_home(args), "lldb")
-    # if not os.path.exists(lldb_server_root):
-    #     raise EnvironmentError("LLDB not found in $ANDROID_HOME: %s." % _get_android_home(args))
-    # latest_lldb_server_version = sorted(os.listdir(lldb_server_root)).pop()
-    # return os.path.join(lldb_server_root, latest_lldb_server_version, "android",
-    #                     args.abi or _get_device_abi(_get_adb_path(args)),
-    #                     "lldb-server")
-    # _get_clang_version_dir_name('~/Work/flutter/engine/src/third_party/android_tools/ndk/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang')
-    # return '~/Work/flutter/engine/src/third_party/android_tools/ndk/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/11.0.5/lib/linux/arm/lldb-server'
+    """get the lldb-server path.""" 
     src_dir = '/Users/vke/Work/flutter/engine/src'
     src_dir = args.local_engine_src_path
     clang_dir = src_dir + '/third_party/android_tools/ndk/toolchains/llvm/prebuilt/darwin-x86_64/lib64/clang/'
