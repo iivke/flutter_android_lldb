@@ -24,7 +24,7 @@ Usage:
 def _find_package_pid(adb_path, package):
     """Find the pid of the Flutter application process."""
     ps_output = subprocess.check_output([adb_path, 'shell', 'ps'])
-    ps_match = re.search('^\S+\s+(\d+).*\s%s' % package, ps_output, re.MULTILINE)
+    ps_match = re.search('^\S+\s+(\d+).*\s%s' % package, ps_output.decode('utf-8'), re.MULTILINE)
     if not ps_match:
         print('Unable to find pid for package %s on device' % package)
         print('You can get the application pid by execute one of the commands in terminal:')
